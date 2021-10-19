@@ -7,8 +7,8 @@ def get_destination_index(destination):
 
 #print(get_destination_index("Hyderabad, India"))
 
-def get_traveler_location(tarveler):
-    traveler_destination = test_traveler[1]
+def get_traveler_location(traveler):
+    traveler_destination = traveler[1]
     traveler_destination_index = get_destination_index(traveler_destination)
     return traveler_destination_index
 
@@ -52,4 +52,16 @@ def find_attractions(destination, interests):
     return attractions_with_interest
     
 la_arts = find_attractions("Los Angeles, USA", ['art'])
-print(la_arts)
+#print(la_arts)
+
+def get_attractions_for_traveler(traveler):
+    traveler_destination = traveler[1]
+    traveler_interasts = traveler[2]
+    traveler_attractions = find_attractions(traveler_destination, traveler_interasts)
+    interests_string = "Hi " + traveler[0] + ", we think you'll like these places around " + traveler_destination + ": "
+    for attraction in traveler_attractions:
+        interests_string += (attraction)
+    return interests_string
+    
+smills_france = get_attractions_for_traveler(['Dereck Smill', 'Paris, France', ['monument']])
+print(smills_france)
